@@ -1,0 +1,45 @@
+﻿@using Web14January.Models
+@model student
+@{
+    ViewBag.Title = "SerarchStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SerarchStudent</h2>
+
+<form action="" method="post">
+    Enter Email id to Search Estudent
+    <input type="email" name="email" placeholder="Enter Your Eamil" class="form-control" />
+    <input type="submit" value="SEARCH STUDENT" />
+</form>
+
+@if(Model!=null)
+{
+    if(Model.name!=null)
+    { 
+<table class="table table-responsive">
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Hobbie</th>
+        <th>Profile</th>
+        <th>Register Date</th>
+    </tr>
+    <tr>
+        <td>@Model.name</td>
+        <td>@Model.gender</td>
+        <td>@Model.email</td>
+        <td>@Model.password</td>
+        <td>@Model.hobbie</td>
+        <td><img src="~/Content/Profile/"@Model.picture height="90px" width="90px"/></td>
+        <td>@Model.regdate</td>
+    </tr>
+</table>
+    }
+                else
+                {
+                    <p> No Record Found</p>
+                }
+}
